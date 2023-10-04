@@ -1,4 +1,4 @@
-import DICTS from "./clickhouse-dicts.js";
+import { DICTS, add_word } from "./clickhouse-dicts.js";
 
 class Card {
     constructor() {
@@ -175,7 +175,22 @@ class View {
             html += `</tr>`;
         }
         html += `</table>`;
+        html += `
+            <table class="view-table"><tr>
+                <td><input type="text" id="add-nl" name="nl" required/></td>
+                <td><input type="text" id="add-en" name="en" required/></td>
+            </tr></table>
+            <div id="btn-add" class="button button-green">Add</div>
+        `;
         this.node.innerHTML = html;
+        document.getElementById("btn-add").onclick = () => this.onAdd();
+    }
+
+    onAdd() {
+        const nl = document.getElementById("add-nl").value;
+        const en = document.getElementById("add-en").value;
+        add_word("test", nl, en);
+        alert(nl + " -> " + en, " added. Reload the page now!");
     }
 }
 

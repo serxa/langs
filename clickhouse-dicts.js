@@ -12,11 +12,8 @@ async function load() {
     if (!response.ok) onError();
     const json = await response.json();
 
-    console.log(result);
-
     var result = {};
     for (let row of json.data) {
-        console.log(row);
         if (!(row.dict in result)) {
             result[row.dict] = [];
         }
@@ -31,4 +28,26 @@ async function load() {
 
 var DICTS = await load();
 
-export default DICTS;
+async function add_word(dict, nl, en) {
+    const response = await fetch(
+        clickhouse_url,
+        {
+            method: "POST",
+            body: "INSERT INTO words (dict, nl, en, tags) FORMAT JSONEachRow " + JSON.stringify(
+            {
+                dict: dict,
+                nl: nl,
+                en: en,
+                tags: []
+            })
+        });
+
+    if (!response.ok) {
+        show(error);
+        throw new Error(`Saving failed\nHTTP status ${response.status}`);
+    }
+
+    //history.pushState(null, null, window.location.pathname.replace(/(\?.+)?$/, `?${curr_fingerprint}/${curr_hash}${anchor}`));
+}
+
+export { DICTS, add_word };
