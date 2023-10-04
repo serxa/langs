@@ -1,0 +1,67 @@
+body {
+    background-color: rgb(36, 36, 36);
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.card  {
+    color: white;
+    font-size: 36pt;
+    padding-top: 35vh;
+    margin-bottom: 10vh;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+.button {
+    width: 25%;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.button:not(:first-child) {
+    margin-left: 40px;
+}
+
+.button-green {
+    background-color: green;
+}
+
+.button-red {
+    background-color: red;
+}
+
+.dicts {
+    color: white;
+    font-size: 14pt;
+    padding-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+.dicts-item {
+
+}
+
+.dicts-item-selected {
+    background-color: green;
+}
+
+.view  {
+    color: white;
+    font-size: 16pt;
+}
+
+.view-table  {
+    width: 100%;
+    text-align: left;
+}

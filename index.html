@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <title>Learn Dutch</title>
+</head>
+<body>
+    <div id="card" class="card"></div>
+    <div id="answer" class="buttons">
+        <div id="btn-y" class="button button-green">Yes</div>
+        <div id="btn-n" class="button button-red">No</div>
+    </div>
+    <div id="view" class="view"></div>
+
+    <div id="dicts" class="dicts">
+    </div>
+    <div id="dicts-menu" class="buttons">
+        <div id="btn-en-nl" class="button button-green">EN</div>
+        <div id="btn-nl-en" class="button button-green">NL</div>
+        <div id="btn-view" class="button button-green">Show</div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script type="module">
+        import { DictList } from "./main.js";
+
+        document.getElementById("card").style.display = "none";
+        document.getElementById("answer").style.display = "none";
+        document.getElementById("view").style.display = "none";
+
+        let dictList = new DictList();
+        dictList.render();
+    </script>
+</body>
+</html>
