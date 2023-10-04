@@ -276,7 +276,7 @@ export class DictList {
 
     render() {
         let dicts = document.getElementById("dicts");
-        let html = '<p>elegir diccionarios:</p>';
+        let html = '<p>Select dictionaries:</p>';
         for (let name in DICTS) {
             html += `<div id="dict-${name}" class="dicts-item">${name}</div>`;
         }
